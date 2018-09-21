@@ -1,0 +1,15 @@
+{
+  "name": "drupal/dialogflow_rules",
+  "type": "drupal-module",
+  "description": "Dialogflow rules integration",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/dialogflow_rules",
+  "minimum-stability": "dev",
+  "support": {
+
+  },
+  "require": {
+    "drupal/api_ai_webhook": "^1.0"
+  }
+}

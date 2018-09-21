@@ -1,0 +1,3 @@
+dialogflow_rules_webhook:
+  label: 'when dialogflow triggers this webhook'
+  category: 'Chatbot'
