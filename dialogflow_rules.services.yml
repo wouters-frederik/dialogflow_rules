@@ -1,0 +1,5 @@
+services:
+  dialogflow_rules:
+    class: '\Drupal\dialogflow_rules\EventSubscriber\DialogFlowWebhookEventSubscriber'
+    tags:
+      - { name: 'event_subscriber' }

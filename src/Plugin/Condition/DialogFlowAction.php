@@ -14,13 +14,11 @@ use Drupal\api_ai_webhook\ApiAiEvent;
  *   label = @Translation("action is of type"),
  *   category = @Translation("Chatbot"),
  *   context = {
+ *     "event" = @ContextDefinition("any",
+ *       label = @Translation("Dialogflow event")
+ *     ),
  *     "action" = @ContextDefinition("string",
  *       label = @Translation("Dialogflow action")
- *     ),
- *     "types" = @ContextDefinition("string",
- *       label = @Translation("Content types"),
- *       description = @Translation("Check for the the allowed node types."),
- *       multiple = TRUE
  *     )
  *   }
  * )
@@ -32,17 +30,16 @@ class DialogFlowAction extends RulesConditionBase {
    *
    * @param \Drupal\api_ai_webhook\ApiAiEvent $request
    *   The node to check for a type.
-   * @param string[] $types
-   *   An array of type names as strings.
    *
    * @return bool
    *   TRUE if the action is in the array of types.
    */
-  protected function doEvaluate(ApiAiEvent $event, array $types) {
+  protected function doEvaluate(ApiAiEvent $event, string $action) {
     $request = $event->getRequest();
     $data = $request->request->get('queryResult');
     //structure = request.body.queryResult.action
     //var_dump($data['action']);
+    var_dump('EVAL CONDITION');
     \Drupal::logger('dialogflow_rules')->notice('testing condition (action)');
     \Drupal::logger('dialogflow_rules')->notice($data['action']);
     return in_array($data['action'], $types);

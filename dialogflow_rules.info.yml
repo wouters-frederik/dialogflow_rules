@@ -1,11 +1,9 @@
-name: Dialoglow rules integration
+name: Dialogflow rules integration
 type: module
-description: Dialoglow rules
+description: Dialogflow rules
 # core: 8.x
 package: Chatbot
 dependencies:
-  - chatbot_api
-  - api_ai_webhook
   - rules
 core: '8.x'
 project: 'api_ai_webhook'

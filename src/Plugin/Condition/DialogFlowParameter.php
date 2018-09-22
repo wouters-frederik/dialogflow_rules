@@ -39,6 +39,7 @@ class DialogFlowParameter extends RulesConditionBase {
    *   TRUE if the parameter is in the array of types.
    */
   protected function doEvaluate(ApiAiEvent $event, array $types) {
+    var_dump('EVAL PARAMETER');
     $request = $event->getRequest();
     $data = $request->request->get('queryResult');
     $parameters = $data['parameters'];

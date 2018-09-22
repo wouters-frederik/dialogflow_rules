@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\rules\Event;
+namespace Drupal\dialogflow_rules\Event;
 
 use Symfony\Component\EventDispatcher\GenericEvent;
 
 /**
- * Represent various entity events.
+ * Represent various chatbot events.
  *
  * @see rules_entity_presave()
  */
