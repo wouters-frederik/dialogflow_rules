@@ -38,18 +38,3 @@ function dialogflow_rules_trigger_info() {
     ),
   );
 }
-
-
-
-
-/**
- * Implements hook_entity_view().
- */
-// function dialogflow_rules_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
-//   // Only handle content entities and ignore config entities.
-//   if ($event instanceof ApiAiEvent) {
-//     $event = new DialogFlowWebhookEvent($logger_entry, ['logger_entry' => $logger_entry]);
-//     $event_dispatcher = \Drupal::service('event_dispatcher');
-//     $event_dispatcher->dispatch("Dialogflow:$action", $event);
-//   }
-// }

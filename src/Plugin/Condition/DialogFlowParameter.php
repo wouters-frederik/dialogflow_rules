@@ -43,9 +43,8 @@ class DialogFlowParameter extends RulesConditionBase {
     $request = $event->getRequest();
     $data = $request->request->get('queryResult');
     $parameters = $data['parameters'];
-    //structure = request.body.queryResult.action
-    //var_dump($data['parameters']);
-    \Drupal::logger('dialogflow_rules')->notice('testing condition (parameters)');
+    \Drupal::logger('dialogflow_rules')
+      ->notice('testing condition (parameters)');
     \Drupal::logger('dialogflow_rules')->notice(print_r($parameters,true));
     return in_array($data['parameters'], $types);
   }
