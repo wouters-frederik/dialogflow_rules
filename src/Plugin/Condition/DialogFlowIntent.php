@@ -11,24 +11,20 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 
 /**
- * Provides a 'Dialogflow Parameter' condition.
+ * Provides a 'Dialogflow Intent' condition.
  *
  * @Condition(
- *   id = "rules_dialogflow_parameter",
- *   label = @Translation("condition by intent parameters"),
+ *   id = "rules_dialogflow_intent",
+ *   label = @Translation("intent name"),
  *   category = @Translation("Chatbot"),
  *   context = {
- *     "parameter_name" = @ContextDefinition("string",
- *       label = @Translation("Dialogflow parameter name")
- *     ),
-*     "parameter_value" = @ContextDefinition("string",
- *       label = @Translation("Dialogflow parameter value")
+ *     "intent" = @ContextDefinition("string",
+ *       label = @Translation("Dialogflow intent")
  *     )
-
  *   }
  * )
  */
-class DialogFlowParameter extends RulesConditionBase  implements ContainerFactoryPluginInterface {
+class DialogFlowIntent extends RulesConditionBase  implements ContainerFactoryPluginInterface {
 
 
   /**
@@ -52,23 +48,19 @@ class DialogFlowParameter extends RulesConditionBase  implements ContainerFactor
   }
 
   /**
-   * Check if the parameter exists and value.
+   * Check if the event action exists in the allowed actions.
    *
-   * @param string $parameter_name
-   *   The param to check for.
-   * @param string $parameter_value
-   *   The param value to compare .
+   * @param \Drupal\api_ai_webhook\ApiAiEvent $request
+   *   The node to check for a type.
+   * @param string $intent
+   *   The intent to check for.
    *
    * @return bool
    *   TRUE if the action is the correct action.
    */
-  protected function doEvaluate(string $parameter_name, string $parameter_value) {
+  protected function doEvaluate(string $intent) {
     $content = $this->requestStack->getCurrentRequest()->getContent();
     $data = json_decode($content, true);
-    if (isset($data['queryResult']['parameters'][$parameter_name])) {
-      return $parameter_value == $data['queryResult']['parameters'][$parameter_name];
-    }
-    return FALSE;
-
+    return $intent == $data['queryResult']['intent']['name'];
   }
 }

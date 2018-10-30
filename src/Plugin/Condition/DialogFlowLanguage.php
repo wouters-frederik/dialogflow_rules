@@ -5,6 +5,10 @@ namespace Drupal\dialogflow_rules\Plugin\Condition;
 use Drupal\node\NodeInterface;
 use Drupal\rules\Core\RulesConditionBase;
 use Drupal\api_ai_webhook\ApiAiEvent;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
 
 /**
  * Provides a 'Dialogflow Action' condition.
@@ -14,16 +18,34 @@ use Drupal\api_ai_webhook\ApiAiEvent;
  *   label = @Translation("intent language"),
  *   category = @Translation("Chatbot"),
  *   context = {
- *     "event" = @ContextDefinition("dialogflow:event",
- *       label = @Translation("Dialogflow event")
- *     ),
  *     "language" = @ContextDefinition("string",
  *       label = @Translation("Dialogflow language")
  *     )
  *   }
  * )
  */
-class DialogFlowLanguage extends RulesConditionBase {
+class DialogFlowLanguage extends RulesConditionBase  implements ContainerFactoryPluginInterface {
+
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('request_stack')
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, RequestStack $request_stack) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->requestStack = $request_stack;
+  }
 
   /**
    * Check if the event action exists in the allowed actions.
@@ -36,13 +58,9 @@ class DialogFlowLanguage extends RulesConditionBase {
    * @return bool
    *   TRUE if the action is the correct language.
    */
-
-  protected function doEvaluate(ApiAiEvent $event, string $language) {
-    var_dump('EVAL LANGUAGE');
-    $request = $event->getRequest();
-    $data = $request->request->get('queryResult');
-    \Drupal::logger('dialogflow_rules')->notice('testing condition (language) ' . $language . ' - ' . $data['languageCode']);
-    return ($data['languageCode'] == $language);
-
+  protected function doEvaluate(string $language) {
+    $content = $this->requestStack->getCurrentRequest()->getContent();
+    $data = json_decode($content, true);
+    return strtolower($language) == strtolower($data['queryResult']['languageCode']);
   }
 }

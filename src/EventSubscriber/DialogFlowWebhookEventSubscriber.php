@@ -23,11 +23,15 @@ class DialogFlowWebhookEventSubscriber implements EventSubscriberInterface {
    */
   public function onRespond(ApiAiEvent $DfEvent) {
     $event = new DialogFlowWebhookEvent($DfEvent);
+
+    //Trigger the rules stuff.
     $event_dispatcher = \Drupal::service('event_dispatcher');
     $event_dispatcher->dispatch("dialogflow_rules_webhook", $event);
 
     $request = new IntentRequestApiAiProxy($DfEvent->getRequest());
     $response = new IntentResponseApiAiProxy($DfEvent->getResponse());
+
+    // The answer to your bot framework:
     $response->setIntentResponse('Rules processing triggered!');
   }
 
