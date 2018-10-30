@@ -10,6 +10,8 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Drupal\api_ai_webhook\ApiAiEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Drupal\dialogflow_rules\Event\DialogFlowWebhookEvent;
+use Drupal\chatbot_api_apiai\IntentResponseApiAiProxy;
+use Drupal\chatbot_api_apiai\IntentRequestApiAiProxy;
 
 /**
  * Event Subscriber MyEventSubscriber.
@@ -23,6 +25,10 @@ class DialogFlowWebhookEventSubscriber implements EventSubscriberInterface {
     $event = new DialogFlowWebhookEvent($DfEvent);
     $event_dispatcher = \Drupal::service('event_dispatcher');
     $event_dispatcher->dispatch("dialogflow_rules_webhook", $event);
+
+    $request = new IntentRequestApiAiProxy($DfEvent->getRequest());
+    $response = new IntentResponseApiAiProxy($DfEvent->getResponse());
+    $response->setIntentResponse('Rules processing triggered!');
   }
 
   /**
