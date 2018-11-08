@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dialogflow_example_intent\Plugin\Chatbot\Intent;
+namespace Drupal\dialogflow_rules\Plugin\Chatbot\Intent;
 
 use Drupal\chatbot_api\Plugin\IntentPluginBase;
 
@@ -18,7 +18,9 @@ class CronIntent extends IntentPluginBase {
    */
   public function process() {
 
-    $this->response->setIntentResponse('Cron run triggered.');
+    $msg = 'Cron run triggered.';
+    $this->response->setIntentResponse($msg);
+    $this->response->setIntentDisplayCard($msg, 'Cron run');
     \Drupal::service('cron')->run();
   }
 

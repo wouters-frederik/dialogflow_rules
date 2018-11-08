@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dialogflow_example_intent\Plugin\Chatbot\Intent;
+namespace Drupal\dialogflow_rules\Plugin\Chatbot\Intent;
 
 use Drupal\chatbot_api\Plugin\IntentPluginBase;
 
@@ -39,6 +39,7 @@ class GreetIntent extends IntentPluginBase {
         $msg = 'Good evening nerds. How can I help you?';
     }
     $this->response->setIntentResponse($msg);
+    $this->response->setIntentDisplayCard($msg, 'Greetings');
   }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dialogflow_example_intent\Plugin\Chatbot\Intent;
+namespace Drupal\dialogflow_rules\Plugin\Chatbot\Intent;
 
 use Drupal\chatbot_api\Plugin\IntentPluginBase;
 
@@ -18,8 +18,9 @@ class HourIntent extends IntentPluginBase {
    * {@inheritdoc}
    */
   public function process() {
-    $this->response->setIntentResponse('According to my heroku container the time is ' . date('G') . ' hours and ' . date('i') . ' minutes.');
-    //$this->response->setIntentDisplayCard('Hi to everyone!', 'Greetings');
+    $msg = 'According to my heroku container the time is ' . date('G') . ' hours and ' . date('i') . ' minutes.';
+    $this->response->setIntentResponse($msg);
+     $this->response->setIntentDisplayCard($msg, 'Time check');
   }
 
 }

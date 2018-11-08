@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dialogflow_example_intent\Plugin\Chatbot\Intent;
+namespace Drupal\dialogflow_rules\Plugin\Chatbot\Intent;
 
 use Drupal\chatbot_api\Plugin\IntentPluginBase;
 
@@ -18,7 +18,9 @@ class FlushIntent extends IntentPluginBase {
    */
   public function process() {
 
-    $this->response->setIntentResponse('The cache flush was started.');
+    $msg = 'The cache flush was started.';
+    $this->response->setIntentResponse($msg);
+        $this->response->setIntentDisplayCard($msg, 'Flushed');
     drupal_flush_all_caches();
   }
 

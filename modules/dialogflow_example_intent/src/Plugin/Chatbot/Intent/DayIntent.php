@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dialogflow_example_intent\Plugin\Chatbot\Intent;
+namespace Drupal\dialogflow_rules\Plugin\Chatbot\Intent;
 
 use Drupal\chatbot_api\Plugin\IntentPluginBase;
 
@@ -17,7 +17,9 @@ class DayIntent extends IntentPluginBase {
    * {@inheritdoc}
    */
   public function process() {
-    $this->response->setIntentResponse('According to my heroku container it is '  . date('l') );
+    $msg = 'According to my heroku container it is '  . date('l');
+    $this->response->setIntentResponse($msg);
+    $this->response->setIntentDisplayCard($msg, 'day');
   }
 
 }
