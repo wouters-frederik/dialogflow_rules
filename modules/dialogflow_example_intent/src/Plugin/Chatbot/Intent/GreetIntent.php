@@ -8,7 +8,7 @@ use Drupal\chatbot_api\Plugin\IntentPluginBase;
  * Plugin implementation of chatbot intent.
  *
  * @Intent(
- *   id = "f1e84d3f-deca-4145-a9d3-e66baf0d9ac2",
+ *   id = "Default Welcome Intent",
  *   label = @Translation("greet intent")
  * )
  */

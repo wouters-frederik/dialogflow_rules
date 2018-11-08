@@ -1,0 +1,30 @@
+Hallo
+
+Can you hear me?
+
+How are you?
+
+What can you do?
+
+OK what time is is?
+
+How is the audience doing?
+
+what is the weather like today?
+
+What day is it today?
+
+can you please put the site offline (yes)
+
+flush the cache now
+
+run cron
+
+put the site online again.
+
+
+thanks
+
+
+
+

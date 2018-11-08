@@ -8,7 +8,7 @@ use Drupal\chatbot_api\Plugin\IntentPluginBase;
  * Plugin implementation of chatbot intent.
  *
  * @Intent(
- *   id = "3c4c7294-0d8f-4d8f-9d75-31dce3bfcc45",
+ *   id = "hourIntent",
  *   label = @Translation("hour intent")
  * )
  */

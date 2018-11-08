@@ -8,7 +8,7 @@ use Drupal\chatbot_api\Plugin\IntentPluginBase;
  * Plugin implementation of chatbot intent.
  *
  * @Intent(
- *   id = "cfa05e6a-4828-4bae-a5dc-1d24708a59a7",
+ *   id = "flush cache",
  *   label = @Translation("flush intent")
  * )
  */

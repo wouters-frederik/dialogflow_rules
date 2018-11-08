@@ -8,7 +8,7 @@ use Drupal\chatbot_api\Plugin\IntentPluginBase;
  * Plugin implementation of chatbot intent.
  *
  * @Intent(
- *   id = "d1f46df1-c399-f08b-fcd8-94beda208295",
+ *   id = "siteoffline"
  *   label = @Translation("Offline intent")
  * )
  */

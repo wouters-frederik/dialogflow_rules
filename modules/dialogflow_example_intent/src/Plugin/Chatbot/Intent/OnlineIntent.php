@@ -8,7 +8,7 @@ use Drupal\chatbot_api\Plugin\IntentPluginBase;
  * Plugin implementation of chatbot intent.
  *
  * @Intent(
- *   id = "4eb5185a-3bb5-409f-bd1e-44b75e43c396",
+ *   id = "siteonline",
  *   label = @Translation("Online intent")
  * )
  */
