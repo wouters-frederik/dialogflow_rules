@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Plugin implementation of chatbot intent.
  *
  * @Intent(
- *   id = "projects/restobot-hfb/agent/intents/7327f61f-8305-456c-9e1b-f3938d287420",
+ *   id = "7327f61f-8305-456c-9e1b-f3938d287420",
  *   label = @Translation("tell me a joke.")
  * )
  */

@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
  * Plugin implementation of chatbot intent.
  *
  * @Intent(
- *   id = "projects/restobot-hfb/agent/intents/22d0d4e1-b8b7-495e-a965-123cda6b2bd0",
+ *   id = "22d0d4e1-b8b7-495e-a965-123cda6b2bd0",
  *   label = @Translation("what is the weather?")
  * )
  */
