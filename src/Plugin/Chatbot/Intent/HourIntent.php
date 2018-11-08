@@ -18,7 +18,7 @@ class HourIntent extends IntentPluginBase {
    * {@inheritdoc}
    */
   public function process() {
-    $this->response->setIntentResponse('According to my heroku container it is ' . date('G') . ' hours and ' . date('i') . ' minutes.');
+    $this->response->setIntentResponse('According to my heroku container the time is ' . date('G') . ' hours and ' . date('i') . ' minutes.');
     //$this->response->setIntentDisplayCard('Hi to everyone!', 'Greetings');
   }
 
