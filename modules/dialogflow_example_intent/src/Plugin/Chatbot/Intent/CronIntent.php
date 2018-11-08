@@ -8,7 +8,7 @@ use Drupal\chatbot_api\Plugin\IntentPluginBase;
  * Plugin implementation of chatbot intent.
  *
  * @Intent(
- *   id = "8c7e072f-6c03-4edb-9d04-235b4bff717d",
+ *   id = "cron",
  *   label = @Translation("cron intent")
  * )
  */
