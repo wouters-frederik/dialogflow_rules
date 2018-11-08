@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\dialogflow_rules\Plugin\Chatbot\Intent;
+namespace Drupal\dialogflow_example_intent\Plugin\Chatbot\Intent;
 
 use Drupal\chatbot_api\Plugin\IntentPluginBase;
 
